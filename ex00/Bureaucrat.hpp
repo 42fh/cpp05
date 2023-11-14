@@ -17,8 +17,8 @@ public:
 	int getGrade() const;
 	void increment();
 	void decrement();
-	class GradeTooHighException: std::exception {};
-	class GradeTooLowException: std::exception {};
+	class GradeTooHighException: public std::exception {};
+	class GradeTooLowException: public std::exception {};
 };
 
 std::ostream& operator<<(std::ostream& out, Bureaucrat& b);

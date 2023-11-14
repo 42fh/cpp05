@@ -19,7 +19,7 @@ int main()
 		/* do some stuff with bureaucrats */
 		B.decrement();
 	}
-	catch (.../*std::exception & e*/)
+	catch (std::exception & e)
 	{
 		/* handle exception */
 		std::cout << "caught (std::exception & e) exception" << std::endl;
