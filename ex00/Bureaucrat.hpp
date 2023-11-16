@@ -5,14 +5,14 @@
 class Bureaucrat
 {
 private:
-	std::string name;
+	const std::string name;
 	int grade;
 public:
 	Bureaucrat();
-	Bureaucrat(Bureaucrat&);
+	Bureaucrat(const Bureaucrat&);
 	Bureaucrat(const std::string, int);
 	~Bureaucrat();
-	Bureaucrat& operator=(Bureaucrat&);
+	Bureaucrat& operator=(const Bureaucrat&);
 	const std::string getName() const;
 	int getGrade() const;
 	void increment();
@@ -21,4 +21,4 @@ public:
 	class GradeTooLowException: public std::exception {};
 };
 
-std::ostream& operator<<(std::ostream& out, Bureaucrat& b);
+std::ostream& operator<<(std::ostream& out, const Bureaucrat& b);

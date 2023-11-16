@@ -1,7 +1,7 @@
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(): name("DefaultName"), grade(75){}
-Bureaucrat::Bureaucrat(Bureaucrat& other): name(other.name), grade(other.grade){}
+Bureaucrat::Bureaucrat(const Bureaucrat& other): name(other.name), grade(other.grade){}
 
 Bureaucrat::Bureaucrat(const std::string str, int i): name(str), grade(i)
 {
@@ -15,9 +15,12 @@ Bureaucrat::~Bureaucrat()
 {
 }
 
-Bureaucrat& Bureaucrat::operator=(Bureaucrat& rhs)
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs)
 {
-	return rhs;
+	// the following line would give a compile time error as name is const
+	// this->name = rhs.name;
+	this->grade = rhs.grade;
+	return *this;
 }
 
 const std::string Bureaucrat::getName() const
@@ -46,7 +49,7 @@ void Bureaucrat::decrement()
 		throw Bureaucrat::GradeTooLowException();
 }
 
-std::ostream& operator<<(std::ostream& out, Bureaucrat& b)
+std::ostream& operator<<(std::ostream& out, const Bureaucrat& b)
 {
 	out << b.getName() << ", bureaucrat grade: " << b.getGrade() << std::endl;
 	return out;
