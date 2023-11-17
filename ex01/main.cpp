@@ -96,4 +96,5 @@ int main()
 	// TestIncrement();
 
 	Form F;
+	std::cout << F;
 }

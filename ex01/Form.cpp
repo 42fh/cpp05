@@ -1,30 +1,32 @@
 #include "Form.hpp"
 
-Form::Form(): minGradeToSign(75), minGradeToExec(70)
-{
-}
+Form::Form():													name("DefaultName"),	isSigned(false),	minGradeToSign(75),						minGradeToExec(70)					{}
+Form::Form(Form& other):										name(other.name),		isSigned(false),	minGradeToSign(other.minGradeToSign),	minGradeToExec(other.minGradeToExec){}
+Form::Form(std::string str, const int n, const int m):			name(str),				isSigned(false),	minGradeToSign(n),						minGradeToExec(m)
+	{if(n < 1 || m < 1) throw Form::GradeTooHighException(); else if(n > 150 || m > 150) throw Form::GradeTooLowException();}
+Form::Form(std::string str, bool b, const int n, const int m):	name(str),				isSigned(b),		minGradeToSign(n),						minGradeToExec(m)
+	{if(n < 1 || m < 1) throw Form::GradeTooHighException(); else if(n > 150 || m > 150) throw Form::GradeTooLowException();}
 
-Form::Form(Form& other): minGradeToSign(other.minGradeToSign), minGradeToExec(other.minGradeToExec)
-{
-	(void) other;
-}
-
-Form::Form(std::string str, bool b, const int n, const int m): name(str), isSigned(b), minGradeToSign(n), minGradeToExec(m)
-{
-	
-}
-
-Form::~Form()
-{
-}
+Form::~Form(){}
 
 Form& Form::operator=(Form& rhs)
 {
-	(void) rhs;
-	return *this;
+	isSigned = rhs.isSigned;
+	return(*this);
 }
 
-bool Form::getIsSigned()
+std::string	Form::getName() const 			{return name;}
+bool		Form::getIsSigned() const		{return isSigned;}
+int			Form::getMinGradeToSign() const	{return minGradeToSign;}
+int			Form::getMinGradeToExec() const	{return minGradeToExec;}
+
+std::ostream& operator<<(std::ostream& os, const Form f)
 {
-	return isSigned;
+	os << "Form = ("
+		<< "name: " << f.getName() << ", "
+		<< "isSigned: " << f.getIsSigned() << ", "
+		<< "minGradeToSign: " << f.getMinGradeToSign() << ", "
+		<< "minGradeToExec: " << f.getMinGradeToExec() << ")"
+		<< std::endl;
+	return os;
 }
