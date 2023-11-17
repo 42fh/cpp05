@@ -1,5 +1,6 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 void TestOCF()
 {
@@ -88,82 +89,84 @@ void TestIncrement()
 	}
 }
 
-void TestFormOCT()
-{
-	std::cout << "=====TestFormOCT" << std::endl;
-	AForm F1;
-	std::cout << F1;
-	AForm F2("FormF2isnamedfish", 5, 10);
-	std::cout << F2;
-	AForm F3(F2);
-	std::cout << F3;
-	F1 = F3;
-	std::cout << F1;
-}
+// void TestFormOCT()
+// {
+// 	std::cout << "=====TestFormOCT" << std::endl;
+// 	AForm F1;
+// 	std::cout << F1;
+// 	AForm F2("FormF2isnamedfish", 5, 10);
+// 	std::cout << F2;
+// 	AForm F3(F2);
+// 	std::cout << F3;
+// 	F1 = F3;
+// 	std::cout << F1;
+// }
 
-void TestFormExcep()
-{
-	std::cout << "=====TestFormExcep" << std::endl;
-	try {
-		AForm F1("Formwithtoolowgrade", 151, 10);
-	}
-	catch(std::exception& e){
-		std::cout << e.what() << std::endl;
-	}
+// void TestFormExcep()
+// {
+// 	std::cout << "=====TestFormExcep" << std::endl;
+// 	try {
+// 		AForm F1("Formwithtoolowgrade", 151, 10);
+// 	}
+// 	catch(std::exception& e){
+// 		std::cout << e.what() << std::endl;
+// 	}
 
 
-	try {
-		AForm F2("Formwithtoolowgrade", 150, 151);
-	}
-	catch(std::exception& e){
-		std::cout << e.what() << std::endl;
-	}
+// 	try {
+// 		AForm F2("Formwithtoolowgrade", 150, 151);
+// 	}
+// 	catch(std::exception& e){
+// 		std::cout << e.what() << std::endl;
+// 	}
 
-	try {
-		AForm F3("Formwithtoohighgrade", 0, 151);
-	}
-	catch(std::exception& e){
-		std::cout << e.what() << std::endl;
-	}
+// 	try {
+// 		AForm F3("Formwithtoohighgrade", 0, 151);
+// 	}
+// 	catch(std::exception& e){
+// 		std::cout << e.what() << std::endl;
+// 	}
 
-	try {
-		AForm F3("Formwithtoohighgrade", 1, 0);
-	}
-	catch(std::exception& e){
-		std::cout << e.what() << std::endl;
-	}
-}
+// 	try {
+// 		AForm F3("Formwithtoohighgrade", 1, 0);
+// 	}
+// 	catch(std::exception& e){
+// 		std::cout << e.what() << std::endl;
+// 	}
+// }
 
-void TestFormSigning()
-{
-	std::cout << "=====TestFormSigning" << std::endl;
-	AForm F1("FormF1", 10, 10);
-	Bureaucrat B1("BuroB1", 5);
-	F1.beSigned(B1);
-}
+// void TestFormSigning()
+// {
+// 	std::cout << "=====TestFormSigning" << std::endl;
+// 	AForm F1("FormF1", 10, 10);
+// 	Bureaucrat B1("BuroB1", 5);
+// 	F1.beSigned(B1);
+// }
 
-void TestFormSigningErr()
-{
-	std::cout << "=====TestFormSigning" << std::endl;
-	AForm F1("FormF1", 10, 10);
-	Bureaucrat B1("BuroB1", 11);
-	try {
-		F1.beSigned(B1);
-	}
-	catch(...)
-	{
-		std::cout << "Caught runtime exception while signing form" << std::endl;
-	}
-}
+// void TestFormSigningErr()
+// {
+// 	std::cout << "=====TestFormSigning" << std::endl;
+// 	AForm F1("FormF1", 10, 10);
+// 	Bureaucrat B1("BuroB1", 11);
+// 	try {
+// 		F1.beSigned(B1);
+// 	}
+// 	catch(...)
+// 	{
+// 		std::cout << "Caught runtime exception while signing form" << std::endl;
+// 	}
+// }
 
 int main()
 {
-	// TestOCF();
+	TestOCF();
 	// TestInit();
 	// TestDecrement();
 	// TestIncrement();
-	TestFormOCT();
-	TestFormExcep();
-	TestFormSigning();
-	TestFormSigningErr();
+	// TestFormOCT();
+	// TestFormExcep();
+	// TestFormSigning();
+	// TestFormSigningErr();
+
+	ShrubberyCreationForm s1;
 }

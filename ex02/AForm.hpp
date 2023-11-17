@@ -18,6 +18,7 @@ public:
 	AForm(std::string, bool, const int, const int);
 	
 	~AForm();
+	
 	AForm& operator=(AForm&);
 
 	std::string	getName() const;
@@ -27,8 +28,12 @@ public:
 
 	void beSigned(Bureaucrat&);
 
+	// virtual void execute(Bureaucrat const & executor) const;
+
+	virtual void action() = 0;
+
 	class GradeTooHighException:	public std::exception{};
 	class GradeTooLowException:		public std::exception{};
 };
 
-std::ostream& operator<<(std::ostream&, AForm);
+// std::ostream& operator<<(std::ostream&, AForm);

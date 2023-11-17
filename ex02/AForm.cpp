@@ -34,13 +34,13 @@ void AForm::beSigned(Bureaucrat& b)
 	}
 }
 
-std::ostream& operator<<(std::ostream& os, const AForm f)
-{
-	os << "AForm = ("
-		<< "name: " << f.getName() << ", "
-		<< "isSigned: " << f.getIsSigned() << ", "
-		<< "minGradeToSign: " << f.getMinGradeToSign() << ", "
-		<< "minGradeToExec: " << f.getMinGradeToExec() << ")"
-		<< std::endl;
-	return os;
-}
+// std::ostream& operator<<(std::ostream& os, const AForm f)
+// {
+// 	os << "AForm = ("
+// 		<< "name: " << f.getName() << ", "
+// 		<< "isSigned: " << f.getIsSigned() << ", "
+// 		<< "minGradeToSign: " << f.getMinGradeToSign() << ", "
+// 		<< "minGradeToExec: " << f.getMinGradeToExec() << ")"
+// 		<< std::endl;
+// 	return os;
+// }
