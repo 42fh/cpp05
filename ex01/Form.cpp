@@ -20,6 +20,20 @@ bool		Form::getIsSigned() const		{return isSigned;}
 int			Form::getMinGradeToSign() const	{return minGradeToSign;}
 int			Form::getMinGradeToExec() const	{return minGradeToExec;}
 
+void Form::beSigned(Bureaucrat& b)
+{
+	if (minGradeToSign < b.getGrade())
+	{
+		b.signForm(*this, false);
+		throw Form::GradeTooLowException();
+	}
+	else
+	{
+		isSigned = true;
+		b.signForm(*this, true);
+	}
+}
+
 std::ostream& operator<<(std::ostream& os, const Form f)
 {
 	os << "Form = ("

@@ -2,6 +2,8 @@
 #include <string>
 #include <iostream>
 
+class Form;
+
 class Bureaucrat
 {
 private:
@@ -12,11 +14,15 @@ public:
 	Bureaucrat(const Bureaucrat&);
 	Bureaucrat(const std::string, int);
 	~Bureaucrat();
+	
 	Bureaucrat& operator=(const Bureaucrat&);
-	const std::string getName() const;
-	int getGrade() const;
+	
+	const std::string	getName() const;
+	int					getGrade() const;
+	
 	void increment();
 	void decrement();
+	void signForm(Form& f, bool wasSigned);
 	class GradeTooHighException: public std::exception {};
 	class GradeTooLowException: public std::exception {};
 };
