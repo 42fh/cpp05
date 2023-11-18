@@ -3,6 +3,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 void TestOCF()
 {
@@ -189,7 +190,7 @@ void TestShrubberyCreationForm1()
 
 void TestShrubberyCreationForm2()
 {
-	std::cout << "=====TestShrubberyCreationForm1" << std::endl;
+	std::cout << "=====TestShrubberyCreationForm2" << std::endl;
 	ShrubberyCreationForm s1;
 	std::cout << s1.getName() << std::endl;
 	
@@ -248,7 +249,7 @@ void TestRobotomyRequestForm1()
 
 void TestRobotomyRequestForm2()
 {
-	std::cout << "=====TestRobotomyRequestForm1" << std::endl;
+	std::cout << "=====TestRobotomyRequestForm2" << std::endl;
 	RobotomyRequestForm s1;
 	std::cout << s1.getName() << std::endl;
 	
@@ -307,7 +308,7 @@ void TestPresidentialPardonForm1()
 
 void TestPresidentialPardonForm2()
 {
-	std::cout << "=====TestPresidentialPardonForm1" << std::endl;
+	std::cout << "=====TestPresidentialPardonForm2" << std::endl;
 	PresidentialPardonForm s1;
 	std::cout << s1.getName() << std::endl;
 	
@@ -336,9 +337,48 @@ void TestPresidentialPardonForm2()
 	s2.execute(B1);
 }
 
+void InternReRo()
+{
+	{
+		std::cout << "=====Intern robotomy request" << std::endl;
+		Bureaucrat B1("B1_name", 2);
+		Intern someRandomIntern;
+		AForm* rrf;
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		rrf->beSigned(B1);
+		rrf->execute(B1);
+	}
+}
+
+void InternPrePa()
+{
+	{
+		std::cout << "=====Intern Presidential PardonForm" << std::endl;
+		Bureaucrat B1("B1_name", 2);
+		Intern someRandomIntern;
+		AForm* rrf;
+		rrf = someRandomIntern.makeForm("presidential pardon", "Lender");
+		rrf->beSigned(B1);
+		rrf->execute(B1);
+	}
+}
+
+void InternShruCre()
+{
+	{
+		std::cout << "=====Intern Shrubbery CreationForm" << std::endl;
+		Bureaucrat B1("B1_name", 2);
+		Intern someRandomIntern;
+		AForm* rrf;
+		rrf = someRandomIntern.makeForm("shrubbery creation", "Fender");
+		rrf->beSigned(B1);
+		rrf->execute(B1);
+	}
+}
+
 int main()
 {
-	TestOCF();
+	// TestOCF();
 	// TestInit();
 	// TestDecrement();
 	// TestIncrement();
@@ -347,10 +387,14 @@ int main()
 	// TestFormSigning();
 	// TestFormSigningErr();
 
-	TestShrubberyCreationForm1(); 
-	TestShrubberyCreationForm2(); 
-	TestRobotomyRequestForm1(); 
-	TestRobotomyRequestForm2(); 
-	TestPresidentialPardonForm1(); 
-	TestPresidentialPardonForm2(); 
+	// TestShrubberyCreationForm1(); 
+	// TestShrubberyCreationForm2(); 
+	// TestRobotomyRequestForm1(); 
+	// TestRobotomyRequestForm2(); 
+	// TestPresidentialPardonForm1(); 
+	// TestPresidentialPardonForm2(); 
+
+	InternReRo();
+	InternPrePa();
+	InternShruCre();
 }

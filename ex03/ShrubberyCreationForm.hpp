@@ -14,3 +14,4 @@ public:
 	void action() const;
 };
 
+AForm* newShrubberyCreationForm(std::string);

@@ -31,3 +31,8 @@ void RobotomyRequestForm::action() const
 	else
 		std::cout << "The robotomy failed" << std::endl;
 }
+
+AForm* newRobotomyRequestForm(std::string str)
+{
+	return(new RobotomyRequestForm(str));
+}

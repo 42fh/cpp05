@@ -15,7 +15,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-	rm -f TargetString_shrubbery
+	rm -f *_shrubbery
 
 re: fclean
 	make all

@@ -27,15 +27,17 @@ int foo(std::string str)
 
 AForm* Intern::makeForm(std::string name, std::string target)
 {
-	// int arr[] = {1};
-	// arr[0] = 2;
-	// int(*p)(int) =  &foo;
-	// typedef int(*fp)(int);
-	int(*arr[])(std::string)= {&foo};
-	// int(*arr[])(std::string)= {&foo, &ShrubberyCreationForm::ShrubberyCreationForm};
-	std::cout << arr[0]("2") << std::endl;
-	(void) name;
-	(void) target;
+	AForm* (*fptrs[])(std::string)= {&newShrubberyCreationForm, &newRobotomyRequestForm, &newPresidentialPardonForm};
+	std::string names[] = {"shrubbery creation", "robotomy request", "presidential pardon"};
+	
+	AForm* p;
+	for (int i = 0; i < 3; i++){
+		if (name == names[i])
+		{
+			p = fptrs[i](target);
+			std::cout << name << "++" << i << std::endl;
+		}
+	}
 
-	return NULL;
+	return p;
 }

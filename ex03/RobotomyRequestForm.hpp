@@ -15,3 +15,4 @@ public:
 	void action() const;
 };
 
+AForm* newRobotomyRequestForm(std::string);

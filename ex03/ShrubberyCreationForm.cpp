@@ -24,6 +24,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm& r
 
 void ShrubberyCreationForm::action() const
 {
+	std::cout << "SHCR action" << std::endl;
 	const std::string filename(this->getName() + "_shrubbery");
 	std::ofstream outfile(filename.c_str());
 	if (outfile.fail())
@@ -39,4 +40,9 @@ void ShrubberyCreationForm::action() const
 			<<	"    |     |      |  |     " << std::endl
 			<<	"--------------------------" << std::endl;
 	outfile.close();
+}
+
+AForm* newShrubberyCreationForm(std::string str)
+{
+	return(new ShrubberyCreationForm(str));
 }

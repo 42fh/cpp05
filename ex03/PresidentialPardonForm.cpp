@@ -26,3 +26,8 @@ void PresidentialPardonForm::action() const
 {
 	std::cout << this->getName() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }
+
+AForm* newPresidentialPardonForm(std::string str)
+{
+	return(new PresidentialPardonForm(str));
+}

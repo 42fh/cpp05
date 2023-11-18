@@ -13,3 +13,5 @@ public:
 	
 	void action() const;
 };
+
+AForm* newPresidentialPardonForm(std::string);
