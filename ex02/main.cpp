@@ -1,6 +1,8 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 void TestOCF()
 {
@@ -159,6 +161,7 @@ void TestIncrement()
 
 void TestShrubberyCreationForm1()
 {
+	std::cout << "=====TestShrubberyCreationForm1" << std::endl;
 	ShrubberyCreationForm s1;
 	std::cout << s1.getName() << std::endl;
 	
@@ -186,6 +189,7 @@ void TestShrubberyCreationForm1()
 
 void TestShrubberyCreationForm2()
 {
+	std::cout << "=====TestShrubberyCreationForm1" << std::endl;
 	ShrubberyCreationForm s1;
 	std::cout << s1.getName() << std::endl;
 	
@@ -195,6 +199,124 @@ void TestShrubberyCreationForm2()
 	ShrubberyCreationForm s3(s2);
 
 	Bureaucrat B1("NameB1", 20);
+
+	// catches the exception internally
+	B1.executeForm(s2);
+
+	// will throw exception as grade it too low
+	try
+	{
+		s2.execute(B1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	s2.beSigned(B1);
+	B1.executeForm(s2);
+	s2.execute(B1);
+}
+
+void TestRobotomyRequestForm1()
+{
+	std::cout << "=====TestRobotomyRequestForm1" << std::endl;
+	RobotomyRequestForm s1;
+	std::cout << s1.getName() << std::endl;
+	
+	RobotomyRequestForm s2("TargetString");
+	std::cout << s2.getName() << std::endl;
+
+	RobotomyRequestForm s3(s2);
+
+	Bureaucrat B1("NameB1", 149);
+
+	// catches the exception internally
+	B1.executeForm(s2);
+
+	// will throw exception as grade it too low
+	try
+	{
+		s2.execute(B1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+}
+
+void TestRobotomyRequestForm2()
+{
+	std::cout << "=====TestRobotomyRequestForm1" << std::endl;
+	RobotomyRequestForm s1;
+	std::cout << s1.getName() << std::endl;
+	
+	RobotomyRequestForm s2("TargetString");
+	std::cout << s2.getName() << std::endl;
+
+	RobotomyRequestForm s3(s2);
+
+	Bureaucrat B1("NameB1", 20);
+
+	// catches the exception internally
+	B1.executeForm(s2);
+
+	// will throw exception as grade it too low
+	try
+	{
+		s2.execute(B1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	s2.beSigned(B1);
+	B1.executeForm(s2);
+	s2.execute(B1);
+}
+
+void TestPresidentialPardonForm1()
+{
+	std::cout << "=====TestPresidentialPardonForm1" << std::endl;
+	PresidentialPardonForm s1;
+	std::cout << s1.getName() << std::endl;
+	
+	PresidentialPardonForm s2("TargetString");
+	std::cout << s2.getName() << std::endl;
+
+	PresidentialPardonForm s3(s2);
+
+	Bureaucrat B1("NameB1", 149);
+
+	// catches the exception internally
+	B1.executeForm(s2);
+
+	// will throw exception as grade it too low
+	try
+	{
+		s2.execute(B1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+}
+
+void TestPresidentialPardonForm2()
+{
+	std::cout << "=====TestPresidentialPardonForm1" << std::endl;
+	PresidentialPardonForm s1;
+	std::cout << s1.getName() << std::endl;
+	
+	PresidentialPardonForm s2("TargetString");
+	std::cout << s2.getName() << std::endl;
+
+	PresidentialPardonForm s3(s2);
+
+	Bureaucrat B1("NameB1", 2);
 
 	// catches the exception internally
 	B1.executeForm(s2);
@@ -227,4 +349,8 @@ int main()
 
 	TestShrubberyCreationForm1(); 
 	TestShrubberyCreationForm2(); 
+	TestRobotomyRequestForm1(); 
+	TestRobotomyRequestForm2(); 
+	TestPresidentialPardonForm1(); 
+	TestPresidentialPardonForm2(); 
 }
