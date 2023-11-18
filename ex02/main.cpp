@@ -157,6 +157,63 @@ void TestIncrement()
 // 	}
 // }
 
+void TestShrubberyCreationForm1()
+{
+	ShrubberyCreationForm s1;
+	std::cout << s1.getName() << std::endl;
+	
+	ShrubberyCreationForm s2("TargetString");
+	std::cout << s2.getName() << std::endl;
+
+	ShrubberyCreationForm s3(s2);
+
+	Bureaucrat B1("NameB1", 149);
+
+	// catches the exception internally
+	B1.executeForm(s2);
+
+	// will throw exception as grade it too low
+	try
+	{
+		s2.execute(B1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+}
+
+void TestShrubberyCreationForm2()
+{
+	ShrubberyCreationForm s1;
+	std::cout << s1.getName() << std::endl;
+	
+	ShrubberyCreationForm s2("TargetString");
+	std::cout << s2.getName() << std::endl;
+
+	ShrubberyCreationForm s3(s2);
+
+	Bureaucrat B1("NameB1", 20);
+
+	// catches the exception internally
+	B1.executeForm(s2);
+
+	// will throw exception as grade it too low
+	try
+	{
+		s2.execute(B1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	s2.beSigned(B1);
+	B1.executeForm(s2);
+	s2.execute(B1);
+}
+
 int main()
 {
 	TestOCF();
@@ -168,15 +225,6 @@ int main()
 	// TestFormSigning();
 	// TestFormSigningErr();
 
-	ShrubberyCreationForm s1;
-	std::cout << s1.getName() << std::endl;
-	
-	ShrubberyCreationForm s2("TargetString");
-	std::cout << s2.getName() << std::endl;
-	Bureaucrat B1;
-	std::cout << B1;
-	B1.executeForm(s2);
-	s2.beSigned(B1);
-	s2.execute(B1);
-	B1.executeForm(s2);
+	TestShrubberyCreationForm1(); 
+	TestShrubberyCreationForm2(); 
 }
