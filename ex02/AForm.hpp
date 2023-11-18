@@ -34,7 +34,7 @@ public:
 
 	class GradeTooHighException:	public std::exception{};
 	class GradeTooLowException:		public std::exception{};
-	class FormNotSignedException:		public std::exception{};
+	class FormNotSignedException:	public std::exception{};
 };
 
 // std::ostream& operator<<(std::ostream&, AForm);
