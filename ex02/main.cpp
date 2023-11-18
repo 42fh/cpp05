@@ -169,4 +169,14 @@ int main()
 	// TestFormSigningErr();
 
 	ShrubberyCreationForm s1;
+	std::cout << s1.getName() << std::endl;
+	
+	ShrubberyCreationForm s2("TargetString");
+	std::cout << s2.getName() << std::endl;
+	Bureaucrat B1;
+	std::cout << B1;
+	B1.executeForm(s2);
+	s2.beSigned(B1);
+	s2.execute(B1);
+	B1.executeForm(s2);
 }
