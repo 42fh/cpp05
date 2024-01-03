@@ -30,7 +30,7 @@ AForm* Intern::makeForm(std::string name, std::string target)
 	AForm* (*fptrs[])(std::string)= {&newShrubberyCreationForm, &newRobotomyRequestForm, &newPresidentialPardonForm};
 	std::string names[] = {"shrubbery creation", "robotomy request", "presidential pardon"};
 	
-	AForm* p;
+	AForm* p = NULL;
 	for (int i = 0; i < 3; i++){
 		if (name == names[i])
 		{
@@ -38,6 +38,7 @@ AForm* Intern::makeForm(std::string name, std::string target)
 			std::cout << name << "++" << i << std::endl;
 		}
 	}
-
+	if (p == NULL)
+		std::cout << "error message: form name passed as parameter doesn’t exist" << std::endl;
 	return p;
 }

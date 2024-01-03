@@ -376,6 +376,18 @@ void InternShruCre()
 	}
 }
 
+void InternNotEx()
+{
+	{
+		std::cout << "=====Intern Inexisting Form" << std::endl;
+		Bureaucrat B1("B1_name", 2);
+		Intern someRandomIntern;
+		AForm* rrf;
+		rrf = someRandomIntern.makeForm("shrubberx creation", "Fender");
+		(void) rrf;
+	}
+}
+
 int main()
 {
 	// TestOCF();
@@ -397,4 +409,5 @@ int main()
 	InternReRo();
 	InternPrePa();
 	InternShruCre();
+	InternNotEx();
 }
