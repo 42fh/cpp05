@@ -3,7 +3,7 @@ CXX:=c++
 NAME:=prg
 SRCS:=main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 OBJS:= ${SRCS:.cpp=.o} 
-CPPFLAGS:=-Wall -Wextra -Werror -std=c++98 
+CPPFLAGS:=-Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 

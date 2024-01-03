@@ -347,6 +347,7 @@ void InternReRo()
 		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 		rrf->beSigned(B1);
 		rrf->execute(B1);
+		delete rrf;
 	}
 }
 
@@ -360,6 +361,7 @@ void InternPrePa()
 		rrf = someRandomIntern.makeForm("presidential pardon", "Lender");
 		rrf->beSigned(B1);
 		rrf->execute(B1);
+		delete rrf;
 	}
 }
 
@@ -373,6 +375,7 @@ void InternShruCre()
 		rrf = someRandomIntern.makeForm("shrubbery creation", "Fender");
 		rrf->beSigned(B1);
 		rrf->execute(B1);
+		delete rrf;
 	}
 }
 

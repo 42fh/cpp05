@@ -17,7 +17,7 @@ public:
 	AForm(std::string, const int, const int);
 	AForm(std::string, bool, const int, const int);
 	
-	~AForm();
+	virtual ~AForm() = 0;
 	
 	AForm& operator=(AForm&);
 
