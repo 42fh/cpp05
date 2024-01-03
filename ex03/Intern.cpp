@@ -28,14 +28,14 @@ int foo(std::string str)
 AForm* Intern::makeForm(std::string name, std::string target)
 {
 	AForm* (*fptrs[])(std::string)= {&newShrubberyCreationForm, &newRobotomyRequestForm, &newPresidentialPardonForm};
-	std::string names[] = {"shrubbery creation", "robotomy request", "presidential pardon"};
+	const std::string names[] = {"shrubbery creation", "robotomy request", "presidential pardon"};
 	
 	AForm* p = NULL;
 	for (int i = 0; i < 3; i++){
 		if (name == names[i])
 		{
 			p = fptrs[i](target);
-			std::cout << name << "++" << i << std::endl;
+			std::cout << "Intern creates " << names[i] << std::endl;
 		}
 	}
 	if (p == NULL)
